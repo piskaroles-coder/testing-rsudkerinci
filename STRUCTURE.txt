@@ -1,0 +1,203 @@
+rsudkabkerinci.go.id/
+│
+├── 📄 HTML Pages
+│   ├── index.html                    # Halaman utama (Beranda, Berita, Galeri, Layanan, Dokter, Kontak)
+│   ├── pendaftaran.html              # Form pendaftaran pasien online
+│   ├── sejarah.html                  # Halaman sejarah singkat
+│   ├── visi-misi.html                # Halaman visi dan misi
+│   └── struktur-organisasi.html      # Halaman struktur organisasi
+│
+├── 🎨 Assets
+│   ├── style.css                     # Stylesheet utama (Bootstrap + Custom)
+│   ├── script.js                     # JavaScript (Time display, Form handling, API calls)
+│   └── logo/
+│       └── Logo RSUD Kerkinci.png    # Logo RSUD
+│
+├── 💾 Database & Configuration
+│   └── config/
+│       ├── database.php              # Koneksi MySQL (IMPORTANT: Jangan dihapus)
+│       ├── setup_database.php        # Automatic setup script (HAPUS setelah setup)
+│       └── database.sql              # SQL backup (bisa diimport ke phpMyAdmin)
+│
+├── 🔌 API Endpoints
+│   └── api/
+│       ├── handle_pendaftaran.php    # Process form pendaftaran → save to DB
+│       └── handle_kontak.php         # Process form contact → save to DB
+│
+├── 🛠️ Admin Tools (Development/Maintenance)
+│   ├── admin_data.php                # Panel lihat data dari database
+│   └── api_testing.php               # Testing tools & API documentation
+│
+├── 📚 Documentation
+│   ├── README.md                     # Overview & complete documentation
+│   ├── QUICK_START.md                # Quick setup guide (3 langkah cepat)
+│   ├── DATABASE_SETUP.md             # Detailed database setup & troubleshooting
+│   ├── SETUP_SUMMARY.md              # Setup summary & checklist
+│   └── STRUCTURE.txt                 # File structure ini
+│
+└── 🗂️ Folder Structure
+
+═══════════════════════════════════════════════════════════════════
+
+DATABASE TABLES:
+
+rsud_kerinci/
+├── pasien (20 columns)               # Patient registration data
+│   ├── id (PK, Auto Increment)
+│   ├── nama, noktp (UNIQUE), tgllahir, jeniskelamin
+│   ├── goldarah, agama
+│   ├── alamat, kota, kodepos
+│   ├── telepon, email
+│   ├── penyakit, alergi
+│   ├── namapj, hubungan, teleponpj, alamatpj
+│   ├── asuransi, nomorasuransi
+│   ├── created_at, updated_at (TIMESTAMP)
+│   └── status (aktif/nonaktif)
+│
+├── kontak (5 columns)                # Contact form messages
+│   ├── id (PK)
+│   ├── nama, email, pesan
+│   ├── created_at (TIMESTAMP)
+│   └── status (baru/dibaca/ditanggapi)
+│
+├── jadwal_dokter (7 columns)         # Doctor schedules
+│   ├── id (PK)
+│   ├── nama_dokter, spesialisasi
+│   ├── hari, jam_mulai, jam_selesai
+│   ├── lokasi
+│   └── created_at, updated_at
+│
+├── berita (7 columns)                # News/Articles
+│   ├── id (PK)
+│   ├── judul, konten, gambar
+│   ├── tanggal_publikasi, penulis
+│   ├── created_at, updated_at
+│   └── status (publikasi/draft)
+│
+└── pengumuman (7 columns)            # Announcements
+    ├── id (PK)
+    ├── judul, isi
+    ├── tanggal_publikasi, penulis
+    ├── created_at, updated_at
+    └── status (aktif/arsip)
+
+═══════════════════════════════════════════════════════════════════
+
+API FLOW:
+
+1. PENDAFTARAN FORM
+   ┌─────────────────────────────────────────────────────────────┐
+   │ pendaftaran.html                                            │
+   │ ├─ Form dengan 4 section (Data Pribadi, Kontak, Kesehatan) │
+   │ ├─ JavaScript validation                                    │
+   │ └─ Submit → api/handle_pendaftaran.php                     │
+   │    ├─ Validasi input (server-side)                         │
+   │    ├─ Check duplikat NoKTP                                 │
+   │    ├─ INSERT to table: pasien                              │
+   │    ├─ Generate patient_id                                  │
+   │    └─ Return JSON response                                 │
+   │       ├─ Success: Patient registered                       │
+   │       ├─ Error: Show validation errors                     │
+   │       └─ Duplicate: NoKTP already exists                   │
+   └─────────────────────────────────────────────────────────────┘
+
+2. CONTACT FORM
+   ┌─────────────────────────────────────────────────────────────┐
+   │ index.html (Section: Contact Us)                            │
+   │ ├─ Form dengan 3 fields (Nama, Email, Pesan)              │
+   │ ├─ JavaScript validation                                    │
+   │ └─ Submit → api/handle_kontak.php                          │
+   │    ├─ Validasi input (server-side)                         │
+   │    ├─ Validate email format                                │
+   │    ├─ INSERT to table: kontak                              │
+   │    └─ Return JSON response                                 │
+   │       ├─ Success: Message sent                             │
+   │       └─ Error: Show validation errors                     │
+   └─────────────────────────────────────────────────────────────┘
+
+3. DATA VIEWING
+   ┌─────────────────────────────────────────────────────────────┐
+   │ admin_data.php                                              │
+   │ ├─ Select table dropdown (pasien, kontak, jadwal_dokter)  │
+   │ ├─ Display table contents                                  │
+   │ └─ Actions: View, Print, Export to phpMyAdmin             │
+   └─────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+
+SECURITY FEATURES:
+
+✅ Input Sanitization
+   - htmlspecialchars() - Prevent XSS
+   - filter_var() - Email validation
+   - trim() - Remove whitespace
+
+✅ SQL Injection Prevention
+   - Prepared statements
+   - Parameterized queries
+   - No direct query concatenation
+
+✅ Data Validation
+   - Required fields check
+   - Email format validation
+   - Unique constraint (NoKTP)
+
+✅ Error Handling
+   - Try-catch blocks
+   - Meaningful error messages
+   - No sensitive info in responses
+
+✅ CORS & API Security
+   - POST method only (except GET for view)
+   - JSON responses
+   - Proper HTTP status codes
+
+═══════════════════════════════════════════════════════════════════
+
+QUICK REFERENCE:
+
+📍 Main Website
+   http://localhost/rsudkabkerinci.go.id
+
+📍 Setup Database (Run Once)
+   http://localhost/rsudkabkerinci.go.id/config/setup_database.php
+
+📍 View Data
+   http://localhost/rsudkabkerinci.go.id/admin_data.php
+
+📍 Test API
+   http://localhost/rsudkabkerinci.go.id/api_testing.php
+
+📍 Database Management
+   http://localhost/phpmyadmin
+
+═══════════════════════════════════════════════════════════════════
+
+IMPORTANT FILES:
+
+🔴 DO NOT DELETE:
+   - config/database.php (Database connection)
+   - api/handle_pendaftaran.php (Registration API)
+   - api/handle_kontak.php (Contact API)
+   - style.css (Styling)
+   - script.js (Functionality)
+
+🟡 DELETE AFTER SETUP:
+   - config/setup_database.php (One-time setup script)
+
+🟢 OPTIONAL (Can delete):
+   - admin_data.php (If not needed)
+   - api_testing.php (If not needed)
+   - Documentation files (*.md)
+
+═══════════════════════════════════════════════════════════════════
+
+STATUS: ✅ PRODUCTION READY
+
+All files created and configured.
+Database structure designed.
+API endpoints functional.
+Forms integrated and tested.
+Documentation complete.
+
+Ready to deploy! 🚀

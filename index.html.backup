@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSUD Kabupaten Kerinci - Melayani dengan Sepenuh Hati</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Waktu di sudut kanan atas -->
+    <div id="jam" class="waktu-display"></div>
+
+    <!-- Header -->
+    <header class="bg-gradient text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                    <img src="logo/Logo RSUD Kerkinci.png" alt="Logo RSUD" class="logo-header">
+                </div>
+                <div class="col-md-10">
+                    <h1 class="header-title">Rumah Sakit Umum Daerah Kabupaten Kerinci</h1>
+                    <p class="motto">Melayani dengan Sepenuh Hati</p>
+                    <p class="website-info">rsudkabkerinci.go.id</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="sejarah.html">Sejarah Singkat</a></li>
+                            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Layanan</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#rawat-inap">Rawat Inap</a></li>
+                            <li><a class="dropdown-item" href="#rawat-jalan">Rawat Jalan</a></li>
+                            <li><a class="dropdown-item" href="pendaftaran.html">Pendaftaran Pasien Online</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dokter</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#daftar-dokter">Daftar Nama Dokter</a></li>
+                            <li><a class="dropdown-item" href="#jadwal-dokter">Jadwal Dokter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Info</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#info-publik">Informasi Publik</a></li>
+                            <li><a class="dropdown-item" href="#pengumuman">Pengumuman</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-lock"></i> Admin</a></li>
+                </ul>
+                <form class="d-flex ms-auto search-form" role="search">
+                    <input class="form-control search-input" type="search" placeholder="Cari di website..." aria-label="Search">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Beranda -->
+    <section id="beranda" class="hero-section text-white text-center py-3">
+        <div class="container">
+        </div>
+    </section>
+
+    <!-- Berita Terbaru -->
+    <section id="berita" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">📰 Berita Terbaru</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <img src="https://via.placeholder.com/300x200/4A90E2/ffffff?text=Berita+1" alt="Berita 1" class="img-fluid news-img">
+                        <div class="news-content">
+                            <h5>Program Vaksinasi Gratis</h5>
+                            <p class="news-date">28 Januari 2026</p>
+                            <p>RSUD mengadakan program vaksinasi gratis untuk seluruh masyarakat Kerinci setiap akhir pekan.</p>
+                            <a href="#" class="news-link">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <img src="https://via.placeholder.com/300x200/25D366/ffffff?text=Berita+2" alt="Berita 2" class="img-fluid news-img">
+                        <div class="news-content">
+                            <h5>Peluncuran Layanan Konsultasi Online</h5>
+                            <p class="news-date">25 Januari 2026</p>
+                            <p>RSUD meluncurkan layanan konsultasi dokter online untuk kemudahan pasien.</p>
+                            <a href="#" class="news-link">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="news-card">
+                        <img src="https://via.placeholder.com/300x200/FF6B6B/ffffff?text=Berita+3" alt="Berita 3" class="img-fluid news-img">
+                        <div class="news-content">
+                            <h5>Fasilitas Baru Departemen Gawat Darurat</h5>
+                            <p class="news-date">20 Januari 2026</p>
+                            <p>RSUD menambah fasilitas modern di departemen gawat darurat untuk pelayanan lebih baik.</p>
+                            <a href="#" class="news-link">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Galeri Kegiatan -->
+    <section id="highlight-galeri" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">🎨 Galeri Kegiatan Terbaru</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="gallery-highlight">
+                        <img src="https://via.placeholder.com/600x400/87CEEB/000000?text=Kegiatan+Vaksinasi" alt="Vaksinasi" class="img-fluid gallery-highlight-img">
+                        <div class="gallery-overlay">
+                            <h4>Program Vaksinasi Massal</h4>
+                            <p>Kegiatan vaksinasi untuk meningkatkan imunitas masyarakat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="gallery-highlight">
+                        <img src="https://via.placeholder.com/600x400/25D366/000000?text=Pelatihan+Medis" alt="Pelatihan" class="img-fluid gallery-highlight-img">
+                        <div class="gallery-overlay">
+                            <h4>Pelatihan Tenaga Medis</h4>
+                            <p>Peningkatan keterampilan dan pengetahuan tim medis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="gallery-highlight">
+                        <img src="https://via.placeholder.com/600x400/FF6B6B/000000?text=Kunjungan+Pasien" alt="Pasien" class="img-fluid gallery-highlight-img">
+                        <div class="gallery-overlay">
+                            <h4>Kunjungan Pasien Sembuh</h4>
+                            <p>Kepuasan pasien adalah prioritas utama kami</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="gallery-highlight">
+                        <img src="https://via.placeholder.com/600x400/FFD700/000000?text=Acara+Kesehatan" alt="Acara" class="img-fluid gallery-highlight-img">
+                        <div class="gallery-overlay">
+                            <h4>Sosialisasi Kesehatan Masyarakat</h4>
+                            <p>Edukasi kesehatan untuk masyarakat Kerinci</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Layanan -->
+    <section id="layanan" class="bg-light py-5">
+        <div class="container">
+            <h2>🏥 Layanan Kami</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-hospital-user"></i>
+                        <h5>Rawat Inap</h5>
+                        <p>Fasilitas perawatan dengan kamar nyaman dan pengawasan medis 24 jam untuk pasien yang membutuhkan rawat inap.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="service-card">
+                        <i class="fas fa-stethoscope"></i>
+                        <h5>Rawat Jalan</h5>
+                        <p>Layanan konsultasi dan pemeriksaan kesehatan tanpa perlu rawat inap dengan dokter spesialis berpengalaman.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="pendaftaran.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-user-plus"></i> Daftar Pasien Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dokter & Jadwal -->
+    <section id="dokter" class="py-5">
+        <div class="container">
+            <h2>👨‍⚕️ Jadwal Dokter</h2>
+            <p class="mb-4">Lihat jadwal dokter spesialis RSUD Kabupaten Kerinci</p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Dokter</th>
+                            <th>Spesialisasi</th>
+                            <th>Hari</th>
+                            <th>Jam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dr. Ahmad Santoso</td>
+                            <td>Spesialis Jantung</td>
+                            <td>Senin - Kamis</td>
+                            <td>08:00 - 14:00</td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Siti Aminah</td>
+                            <td>Spesialis Anak</td>
+                            <td>Selasa - Jumat</td>
+                            <td>09:00 - 15:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengumuman & Info -->
+    <section id="info" class="bg-light py-5">
+        <div class="container">
+            <h2>📢 Pengumuman Terbaru</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="info-card">
+                        <h5><i class="fas fa-info-circle"></i> Informasi Publik</h5>
+                        <p>Data kesehatan dan laporan tahunan RSUD dapat diakses melalui portal publik kami.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="info-card">
+                        <h5><i class="fas fa-bullhorn"></i> Pengumuman</h5>
+                        <p>Vaksinasi gratis untuk seluruh masyarakat Kerinci setiap akhir pekan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri" class="py-5">
+        <div class="container">
+            <h2>📸 Galeri</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/300x200/87CEEB/ffffff?text=Galeri+1" alt="Galeri 1" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/300x200/25D366/ffffff?text=Galeri+2" alt="Galeri 2" class="img-fluid gallery-img">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/300x200/FF6B6B/ffffff?text=Galeri+3" alt="Galeri 3" class="img-fluid gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="row mb-5">
+                <div class="col-md-4 text-center">
+                    <div class="contact-card">
+                        <div class="contact-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/6281371740005" target="_blank" class="contact-link">
+                            081371740005
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="contact-card">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <a href="mailto:rsudkabkerinci@gmail.com" class="contact-link">
+                            rsudkabkerinci@gmail.com
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="contact-card">
+                        <div class="contact-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Telepon</h4>
+                        <a href="tel:(0741)123456" class="contact-link">
+                            (0741) 123456
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <form id="contactForm" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Pesan</label>
+                    <textarea class="form-control" id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+            <div class="mt-4">
+                <h3 class="mb-3">Lokasi Kami</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.844!2d101.3376080657993!3d-1.9387556880497832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b32c5c5c5c5c5d:0x5e5e5e5e5e5e5e5e!2sRSUD%20Kabupaten%20Kerinci!5e0!3m2!1sid!2sid!4v1706524800000" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2026 RSUD Kabupaten Kerinci | Crz_Algolirsm. Semua Hak Dilindungi.</p>
+            <p>Alamat: Jln. Jalur 2 Bukit Tengah, Desa Sungai Pegeh, Siulak, Kerinci - Jambi 37162 | Tel: (0741) 123456</p>
+            <div>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pasien Online - RSUD Kabupaten Kerinci</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Waktu di sudut kanan atas -->
+    <div id="jam" class="waktu-display"></div>
+
+    <!-- Header -->
+    <header class="bg-gradient text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                    <img src="logo/Logo RSUD Kerkinci.png" alt="Logo RSUD" class="logo-header">
+                </div>
+                <div class="col-md-10">
+                    <h1 class="header-title">Rumah Sakit Umum Daerah Kabupaten Kerinci</h1>
+                    <p class="motto">Melayani dengan Sepenuh Hati</p>
+                    <p class="website-info">rsudkabkerinci.go.id</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.php#beranda">Beranda</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="sejarah.html">Sejarah Singkat</a></li>
+                            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Layanan</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.php#rawat-inap">Rawat Inap</a></li>
+                            <li><a class="dropdown-item" href="index.php#rawat-jalan">Rawat Jalan</a></li>
+                            <li><a class="dropdown-item" href="pendaftaran.html">Pendaftaran Pasien Online</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dokter</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="daftar_dokter.php">Daftar Nama Dokter</a></li>
+                            <li><a class="dropdown-item" href="jadwal_dokter_view.php">Jadwal Dokter</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Info</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="info_publik.php">Informasi Publik</a></li>
+                            <li><a class="dropdown-item" href="index.php#pengumuman">Pengumuman</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#galeri">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#contact">Contact Us</a></li>
+                </ul>
+                <form class="d-flex ms-auto search-form" role="search">
+                    <input class="form-control search-input" type="search" placeholder="Cari di website..." aria-label="Search">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pendaftaran Pasien Online -->
+    <section id="pendaftaran" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-5 text-center">📋 Pendaftaran Pasien Online</h2>
+            
+            <!-- Info Box -->
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Selamat datang!</strong> Anda dapat mendaftar sebagai pasien baru melalui formulir di bawah ini. Data yang Anda isi akan membantu kami memberikan pelayanan kesehatan yang lebih baik dan personal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulir Pendaftaran -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="registration-form">
+                        <h4 class="mb-4">Data Diri Pasien</h4>
+                        <form id="registrationForm" method="POST" action="api/handle_pendaftaran.php">
+                            <!-- Data Pribadi -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nama" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nama" name="nama" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="noktp" class="form-label">No. KTP <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="noktp" name="noktp" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="tgllahir" class="form-label">Tanggal Lahir <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="tgllahir" name="tgllahir" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="jeniskelamin" class="form-label">Jenis Kelamin <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="jeniskelamin" name="jeniskelamin" required>
+                                        <option selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="goldarah" class="form-label">Golongan Darah</label>
+                                    <select class="form-select" id="goldarah" name="goldarah">
+                                        <option selected>Pilih Golongan Darah</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="agama" class="form-label">Agama</label>
+                                    <select class="form-select" id="agama" name="agama">
+                                        <option selected>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Data Kontak -->
+                            <h4 class="mt-5 mb-4">Data Kontak</h4>
+                            
+                            <div class="mb-3">
+                                <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="alamat" name="alamat" rows="2" required></textarea>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="kota" class="form-label">Kota/Kabupaten <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="kota" name="kota" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="kodepos" class="form-label">Kode Pos</label>
+                                    <input type="text" class="form-control" id="kodepos" name="kodepos">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="telepon" class="form-label">No. Telepon <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="telepon" name="telepon" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+
+                            <!-- Informasi Kesehatan -->
+                            <h4 class="mt-5 mb-4">Riwayat Kesehatan</h4>
+                            
+                            <div class="mb-3">
+                                <label for="penyakit" class="form-label">Penyakit yang Diderita/Riwayat Penyakit</label>
+                                <textarea class="form-control" id="penyakit" name="penyakit" rows="3" placeholder="Contoh: Diabetes, Hipertensi, Asma, dll..."></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="alergi" class="form-label">Alergi Obat/Makanan</label>
+                                <textarea class="form-control" id="alergi" name="alergi" rows="3" placeholder="Sebutkan jika ada alergi terhadap obat atau makanan tertentu"></textarea>
+                            </div>
+
+                            <!-- Data Penanggung Jawab -->
+                            <h4 class="mt-5 mb-4">Data Penanggung Jawab</h4>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="namapj" class="form-label">Nama Penanggung Jawab</label>
+                                    <input type="text" class="form-control" id="namapj" name="namapj">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="hubungan" class="form-label">Hubungan Keluarga</label>
+                                    <input type="text" class="form-control" id="hubungan" name="hubungan" placeholder="Contoh: Suami, Istri, Orang Tua, dll">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="teleponpj" class="form-label">No. Telepon Penanggung Jawab</label>
+                                    <input type="tel" class="form-control" id="teleponpj" name="teleponpj">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="alamatpj" class="form-label">Alamat Penanggung Jawab</label>
+                                    <input type="text" class="form-control" id="alamatpj" name="alamatpj">
+                                </div>
+                            </div>
+
+                            <!-- Asuransi -->
+                            <h4 class="mt-5 mb-4">Data Asuransi Kesehatan</h4>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="asuransi" class="form-label">Jenis Asuransi</label>
+                                    <select class="form-select" id="asuransi" name="asuransi">
+                                        <option selected>Pilih Jenis Asuransi</option>
+                                        <option value="BPJS Kesehatan">BPJS Kesehatan</option>
+                                        <option value="Asuransi Swasta">Asuransi Swasta</option>
+                                        <option value="Umum">Umum (Tidak Menggunakan Asuransi)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="nomorasuransi" class="form-label">Nomor Asuransi</label>
+                                    <input type="text" class="form-control" id="nomorasuransi" name="nomorasuransi">
+                                </div>
+                            </div>
+
+                            <!-- Checkbox Persetujuan -->
+                            <div class="mt-5 mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="persetujuan" name="persetujuan" required>
+                                    <label class="form-check-label" for="persetujuan">
+                                        Saya menyatakan bahwa data yang saya berikan adalah benar dan akurat, serta bersedia mematuhi peraturan rumah sakit
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Tombol Submit -->
+                            <div class="row">
+                                <div class="col-md-6 mx-auto">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                                        <i class="fas fa-check"></i> Daftar Sekarang
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg w-100">
+                                        <i class="fas fa-redo"></i> Reset Form
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informasi Tambahan -->
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Cepat dan Mudah</h5>
+                        <p>Proses pendaftaran online hanya membutuhkan waktu beberapa menit.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Data Aman</h5>
+                        <p>Data pribadi Anda dijaga dengan keamanan tinggi dan kerahasiaan terjamin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h5>Dukungan 24/7</h5>
+                        <p>Tim kami siap membantu Anda kapan saja melalui berbagai saluran komunikasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2023 RSUD Kabupaten Kerinci. Semua Hak Dilindungi.</p>
+            <p>Alamat: Jln. Jalur 2 Bukit Tengah, Desa Sungai Pegeh, Siulak, Kerinci - Jambi 37162 | Tel: (0741) 123456</p>
+            <div>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            
+            try {
+                const response = await fetch('api/handle_pendaftaran.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('✓ ' + data.message);
+                    this.reset();
+                } else {
+                    const errorMsg = data.errors ? data.errors.join('\n') : data.message;
+                    alert('✗ ' + errorMsg);
+                }
+            } catch (error) {
+                alert('✗ Terjadi kesalahan: ' + error.message);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    </script>
+</body>
+</html>
